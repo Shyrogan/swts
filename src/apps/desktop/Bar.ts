@@ -13,7 +13,7 @@ export default function() {
       }),
       endWidget: Widget.Box({
         hpack: "end",
-        children: [QuickSettings.Button()]
+        children: [/*QuickSettings.Button()*/]
       })
     }),
   })
