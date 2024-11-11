@@ -49,8 +49,8 @@
           };
         in rec {
           # greeter = agsBuildScreen "greeter" "src/greeter/app.ts";
-          desktop = agsBuildScreen "desktop" "./src/apps/desktop/index.ts" "./styles/desktop.scss";
-          default = desktop;
+          swts-desktop = agsBuildScreen "swts-desktop" "./src/apps/desktop/index.ts" "./styles/desktop.scss";
+          default = swts-desktop;
         };
       }
     );
