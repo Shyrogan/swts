@@ -1,0 +1,32 @@
+.workspaces {
+  margin: 4px 0px;
+  background-color: #{$background_lightest};
+  border-radius: 10px;
+
+  box:not(.workspace){
+    &.created {
+      background-color: #{$background_light};
+      border-radius: 10px;
+
+      button {
+        border: solid 4px #{$accent};
+      }
+    }
+  }
+
+  .workspace {
+    border: solid 4px transparent;
+    
+    &.active {
+      border: solid 4px #{$accent_bg};
+      border-radius: 100%;
+    }
+
+    button {
+      border-radius: 100%;
+      padding: 3px;
+      min-width: 0;
+      border: solid 4px #{$background_light};
+    }
+  }
+}

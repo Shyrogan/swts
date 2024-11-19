@@ -1,0 +1,15 @@
+@import "./colors.scss";
+@import "./widgets/quick-settings/style.scss";
+@import "./widgets/hyprland/style.scss";
+@import "./widgets/misc/style.scss";
+
+* {
+  min-width: 0px;
+  min-height: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+
+window .bar {
+  color: #{$background};
+}
