@@ -21,18 +21,22 @@
           mkdir -p $out/config
           mkdir -p $out/bin
           cp -r ./* $out/config/
-          ln -s ${pkgs.morewaita-icon-theme}/share/icons/MoreWaita ./assets/icons
-          ls -la ${pkgs.morewaita-icon-theme}/share/icons/MoreWaita
 
           makeWrapper ${ags-bin}/bin/ags \
             $out/bin/swts-${app-name} \
             --add-flags " run $out/config"
         '';
       };
-    in {
-      packages = rec {
+    in rec {
+      packages = {
         bar = mkAgsBin "bar";
-        default = bar;
+        default = packages.bar;
+      };
+      apps = {
+        bar = {
+          type = "app";
+          program = packages.bar;
+        };
       };
       devShells = {
         default = pkgs.mkShell {
