@@ -1,17 +1,13 @@
 @import "../../colors.scss";
 
 .quick-settings {
-  &.trigger {
+  &.trigger { 
     margin: 4px 0px;
     padding: 2px 8px;
     background-color: #{$background_lightest};
 
-    font-size: 0.75em;
-    font-weight: 600;
-    color: #{$text};
-
-    .date {
-      padding: 0px 4px;
+    .battery {
+      margin-right: 6px;
     }
   }
 }

@@ -1,18 +1,18 @@
 import Network from "gi://AstalNetwork"
 import { bind } from "astal"
 
-const network = Network.get_default()
-
-const wifi = bind(network, "wifi")
-const isVisible = wifi.as((w) => w.ref_sink)
-
 type Props = {
   label?: boolean;
 }
 
-export default function Battery({ label }: Props) {
+export default function WiFi({ label }: Props) {
+  const network = Network.get_default()
+  const wifi = bind(network, "wifi")
+
+  console.log(wifi.get())
+
   return <box className="wifi">
-    <icon icon={iconName}/>
-    <label visible={label} label={percent} />
+    <icon icon={wifi.as((w) => w?.get_icon_name())}/>
+    <label visible={label} label={wifi.as((w) => w?.get_ssid() || "")} />
   </box>
 }

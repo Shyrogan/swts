@@ -1,6 +1,7 @@
 import { App, Gdk } from "astal/gtk3"
 import Battery from "../misc/Battery";
 import { quickSettingsName } from "./Menu";
+import WiFi from "../misc/WiFi";
 
 type Props = {
   monitor: Gdk.Monitor
@@ -8,11 +9,13 @@ type Props = {
 
 export default function QuickSettingsTrigger({ monitor }: Props) {
   function toggleQuickSettings() {
-    print("Toggling")
     App.toggle_window(quickSettingsName(monitor))
   }
 
   return <button className="quick-settings trigger" onClick={toggleQuickSettings}>
-    <Battery label={false} />
+    <box>
+      <Battery label={false} />
+      <WiFi label={false} />
+    </box>
   </button>
 }
