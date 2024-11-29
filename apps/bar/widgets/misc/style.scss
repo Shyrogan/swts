@@ -1,4 +1,4 @@
-.date, .battery, .wifi {
+.date, .battery, .wifi, .tray {
   font-size: 0.75em;
   font-weight: 600;
   color: #{$text};
@@ -12,4 +12,8 @@
 }
 
 .quick-settings .menu {
+}
+
+.tray {
+  padding: 0px 6px;
 }

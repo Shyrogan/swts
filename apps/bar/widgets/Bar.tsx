@@ -2,6 +2,7 @@ import { Astal, Gtk, Gdk } from "astal/gtk3"
 import Date from "./misc/Date";
 import QuickSettingsTrigger from "./quick-settings/Trigger";
 import Workspaces from "./hyprland/Workspaces";
+import SysTray from "./misc/Tray";
 
 export default function Bar(monitor: Gdk.Monitor) {
   const anchor = Astal.WindowAnchor.TOP
@@ -21,6 +22,7 @@ export default function Bar(monitor: Gdk.Monitor) {
         <QuickSettingsTrigger monitor={monitor} />
       </box>
       <box className="right" hexpand halign={Gtk.Align.END}>
+        <SysTray />
       </box>
     </centerbox>
   </window>

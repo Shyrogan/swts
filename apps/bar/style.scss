@@ -11,9 +11,27 @@
   background-color: transparent;
 }
 
-window .bar {
-  margin: 12px 16px 0px 16px;
+window .bar, menu {
+  font-weight: 600;
+  color: #{$text};
+
   background-color: #{$background};
   border-radius: 8px;
-  border: solid 1px #{$hover}
+
+  &:hover {
+    border: solid 1px #{$accent};
+  }
+
+  &:not(:hover) {
+    border: solid 1px #{$hover};
+  }
+}
+
+window .bar {
+  margin: 12px 16px 0px 16px;
+}
+
+menu {
+  margin: 12px 0px;
+  padding: 4px;
 }
