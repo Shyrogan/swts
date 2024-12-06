@@ -1,5 +1,4 @@
 import { App, Gdk, Gtk } from "astal/gtk3"
-import { bind } from "astal"
 import style from "./style.scss"
 import Bar from "./widgets/Bar"
 import QuickSettingsMenu from "./widgets/quick-settings/Menu"

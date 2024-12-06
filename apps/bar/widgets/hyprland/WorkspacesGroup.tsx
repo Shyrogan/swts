@@ -21,7 +21,7 @@ export default function WorkspacesGroup({ hyprland, group }: Props) {
   }}>
     {group.map((w) =>
       <Workspace
-        isFocus={focusedWs.as((ws) => ws.get_id() === w)}
+        isFocus={focusedWs.as((ws) => ws?.get_id() === w)}
       />
     )}
   </box>
