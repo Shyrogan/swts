@@ -11,7 +11,7 @@
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
       ags-bin = ags.packages.${system}.agsFull;
-      dependencies = with pkgs; [ ags-bin morewaita-icon-theme libdbusmenu libnma ];
+      dependencies = with pkgs; [ ags-bin morewaita-icon-theme libdbusmenu libnma gobject-introspection ];
       
       mkAgsBin = app-name: pkgs.stdenv.mkDerivation {
         name = "swts-${app-name}";
