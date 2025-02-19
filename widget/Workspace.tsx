@@ -23,7 +23,7 @@ type WorkspaceProps = {
 
 export function Workspace({ id }: WorkspaceProps) {
   const className = Variable.derive([bind(hyprland, 'workspaces'), bind(hyprland, 'focusedWorkspace')], (workspaces, focused) => {
-    const allClasses: string[] = ["text-bg-mid"]
+    const allClasses: string[] = ["text-bg-mid text-base"]
     const workspace = workspaces.find((w) => w.id === id)
 
     if (workspace) {

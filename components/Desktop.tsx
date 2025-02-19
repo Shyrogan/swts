@@ -7,7 +7,7 @@ import Tray from "../widget/Tray";
 
 export default function Desktop(monitor: Gdk.Monitor) {
   const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor
-  const { END, CENTER } = Gtk.Align
+  const { END } = Gtk.Align
 
   return <window
     className="bg-transparent"
@@ -17,7 +17,7 @@ export default function Desktop(monitor: Gdk.Monitor) {
     layer={Astal.Layer.BACKGROUND}
     application={App}
   >
-    <centerbox className="pl-1 py-3 " vertical hexpand>
+    <centerbox className="pl-1 py-3 text-base" vertical hexpand>
       <box vertical>
         <Date />
         <Battery />

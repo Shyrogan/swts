@@ -27,8 +27,8 @@ const transform = (v: number) =>
 export default function Date() {
   return <box vertical className="bg-bg rounded p-2">
     <label className="text-light font-bold text-xxs" label={dm(transform)} />
-    <label className="text-light font-semibold" label={hour(transform)} />
-    <label className="text-light font-semibold" label={minute(transform)} />
+    <label className="text-light font-semibold text-base" label={hour(transform)} />
+    <label className="text-light font-semibold text-base" label={minute(transform)} />
     <label className="text-light font-bold text-xxs" label={year(transform)} />
   </box>
 }
