@@ -1,0 +1,89 @@
+// GTK Reset Stylesheet
+// This file provides a reset for GTK components to unset default styling,
+// allowing for custom styling to be applied from scratch.
+// Import this after the theme and before custom styles.
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+widget {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+}
+
+button {
+  margin: 0;
+  margin-left: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  background-image: none;
+  color: inherit;
+  outline: none;
+  box-shadow: none;
+  opacity: 1;
+  text-align: center;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+entry {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  outline: none;
+  box-shadow: none;
+}
+
+window {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+box, hbox, vbox {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+scrolledwindow {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+frame {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
