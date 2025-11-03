@@ -1,5 +1,5 @@
 {
-  description = "My Awesome Desktop Shell";
+  description = "Widgets I use on my laptop";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -22,11 +22,13 @@
 
     astalPackages = with ags.packages.${system}; [
       io
-      astal4 # or astal3 for gtk3
-      # notifd tray wireplumber
+      astal4
       notifd
       wireplumber
       hyprland
+      mpris
+      bluetooth
+      network
     ];
 
     extraPackages =

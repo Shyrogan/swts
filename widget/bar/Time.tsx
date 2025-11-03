@@ -1,5 +1,6 @@
 import { createPoll } from "ags/time"
 import GLib from "gi://GLib?version=2.0"
+import Quicksettings from "./Quicksettings"
 
 type Props = {
   dateFormat: "%d.%m.%Y"
@@ -19,9 +20,12 @@ export default function Time({ dateFormat, hourFormat }: Props) {
   )
 
   return (
-    <box class="space-x-2 text-base pr-2">
-      <label label={date} />
-      <label label={time} class="font-bold" />
-    </box>
+    <menubutton>
+      <box class="space-x-2 text-base pr-4">
+        <label label={date} />
+        <label label={time} class="font-bold" />
+      </box>
+      <Quicksettings />
+    </menubutton>
   )
 }

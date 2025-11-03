@@ -1,8 +1,10 @@
 import app from "ags/gtk4/app"
 import { Astal, Gdk } from "ags/gtk4"
 import Workspaces from "./bar/Workspaces"
-import Title from "./bar/Title"
+import Mpris from "./bar/Mpris"
 import Time from "./bar/Time"
+import Title from "./bar/Title"
+import Quicksettings from "./bar/Quicksettings"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
@@ -21,11 +23,14 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       <centerbox>
         <box $type="start" class="px-2 rounded-lg">
           <Workspaces monitor={gdkmonitor} />
-        </box>
-        <box $type="center">
+
           <Title />
         </box>
+        <box $type="center">
+          <Mpris />
+        </box>
         <box $type="end">
+          <Quicksettings />
           <Time dateFormat="%d.%m.%Y" hourFormat="%R" />
         </box>
       </centerbox>
