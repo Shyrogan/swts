@@ -1,6 +1,6 @@
 import { Gdk } from "ags/gtk4"
 import AstalHyprland from "gi://AstalHyprland"
-import { createBinding, createComputed } from "gnim"
+import { createBinding, createComputed, For, With } from "gnim"
 import Workspace from "./Workspace"
 
 type Props = {
@@ -23,18 +23,8 @@ export default function Workspaces({ monitor }: Props) {
     [hyprWorkspaces, hyprMonitor],
     (ws, monitor) => ws.filter((w) => w.monitor == monitor),
   )
-  const monitorWorkspacesCount = createComputed(
-    [monitorWorkspaces],
-    (ws) => ws.length,
-  )
 
   return (
-    <box class="bg-background px-2 py-1 rounded-lg space-x-1">
-      {Array.from(Array(monitorWorkspacesCount).keys()).map((i) => (
-        <Workspace
-          workspace={createComputed([monitorWorkspaces], (w) => w[i])}
-        />
-      ))}
-    </box>
+    <For each={monitorWorkspaces}>{(ws) => <Workspace workspace={ws} />}</For>
   )
 }

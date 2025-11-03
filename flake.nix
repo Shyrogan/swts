@@ -17,16 +17,16 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    pname = "my-shell";
+    pname = "swts";
     entry = "app.ts";
 
     astalPackages = with ags.packages.${system}; [
       io
-      astal4 
-      hyprland
+      astal4 # or astal3 for gtk3
+      # notifd tray wireplumber
       notifd
-      tray 
       wireplumber
+      hyprland
     ];
 
     extraPackages =
@@ -42,9 +42,9 @@
         src = ./.;
 
         nativeBuildInputs = with pkgs; [
-          wrapGAppsHook
+          wrapGAppsHook3
           gobject-introspection
-          ags.packages.${system}.ags
+          ags.packages.${system}.default
         ];
 
         buildInputs = extraPackages ++ [pkgs.gjs];
@@ -65,11 +65,9 @@
     devShells.${system} = {
       default = pkgs.mkShell {
         buildInputs = [
-          (ags.packages.${system}.agsFull.override {
+          (ags.packages.${system}.default.override {
             inherit extraPackages;
           })
-          pkgs.watchexec
-          pkgs.prettier
         ];
       };
     };
