@@ -17,7 +17,7 @@ export default function Mpris() {
             <label label={createBinding(player, "title")} class="text-base" />
           </box>
         ) : (
-          <label label="" />
+          <box />
         )
       }
     </For>

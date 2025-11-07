@@ -21,7 +21,7 @@ export default function Title() {
   return (
     <With value={focusedClient}>
       {(focusedClient) =>
-        !!focusedClient ? (
+        focusedClient ? (
           <box class="pl-2 space-x-2">
             <label label={appName} class="font-bold" />
             <label label={title} />

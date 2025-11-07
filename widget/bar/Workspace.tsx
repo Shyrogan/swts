@@ -13,18 +13,22 @@ export default function Workspace({ workspace }: Props) {
   return (
     <box>
       <With value={focusedWorkspace}>
-        {(w) => (
-          <button
-            class={cn(
-              w.id === workspace.id && "font-bold text-alt-main",
-              "text-xs py-1 px-1",
-            )}
-            onClicked={() =>
-              hyprland.dispatch("workspace", workspace.id.toString())
-            }
-            label={workspace.id.toString()}
-          />
-        )}
+        {(w) =>
+          w ? (
+            <button
+              class={cn(
+                w && w.id === workspace.id && "font-bold text-alt-main",
+                "text-xs py-1 px-1",
+              )}
+              onClicked={() =>
+                hyprland.dispatch("workspace", workspace.id.toString())
+              }
+              label={workspace.id.toString()}
+            />
+          ) : (
+            <box />
+          )
+        }
       </With>
     </box>
   )

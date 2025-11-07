@@ -10,13 +10,17 @@ export default function Quicksettings() {
     <popover>
       <box class="bg-background px-4 py-3">
         <With value={isPowered}>
-          {(value) => (
-            <button
-              class={cn("p-2", value && "bg-blue")}
-              iconName="bluetooth"
-              onClicked={() => bluetooth.toggle()}
-            />
-          )}
+          {(value) =>
+            value ? (
+              <button
+                class={cn("p-2", value && "bg-blue")}
+                iconName="bluetooth"
+                onClicked={() => bluetooth.toggle()}
+              />
+            ) : (
+              <box />
+            )
+          }
         </With>
       </box>
     </popover>

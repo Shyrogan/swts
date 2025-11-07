@@ -5,8 +5,13 @@ import Mpris from "./bar/Mpris"
 import Time from "./bar/Time"
 import Title from "./bar/Title"
 import Quicksettings from "./bar/Quicksettings"
+import { onCleanup } from "ags"
 
-export default function Bar(gdkmonitor: Gdk.Monitor) {
+type Props = {
+  gdkmonitor: Gdk.Monitor
+}
+
+export default function Bar({ gdkmonitor }: Props) {
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
   return (
@@ -19,6 +24,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       anchor={TOP | LEFT | RIGHT}
       application={app}
       class="text-base font-medium"
+      $={(self) => onCleanup(() => self.destroy())}
     >
       <centerbox>
         <box $type="start" class="px-2 rounded-lg">
