@@ -10,14 +10,11 @@ type Props = {
 }
 
 export default function Workspaces({ monitor }: Props) {
-  if (!monitor.get_connector()) return <label label="" />
-
   const hyprMonitors = createBinding(hyprland, "monitors")
   const hyprMonitor = createComputed(
     [hyprMonitors],
     (monitors) => monitors.find((m) => m.name === monitor.get_connector())!,
   )
-  if (!hyprMonitor) return <label />
 
   const hyprWorkspaces = createBinding(hyprland, "workspaces")
   const monitorWorkspaces = createComputed(
