@@ -3,6 +3,8 @@ import AstalHyprland from "gi://AstalHyprland"
 import { createBinding, createComputed, For } from "gnim"
 import Workspace from "./Workspace"
 
+const hyprland = AstalHyprland.get_default()
+
 type Props = {
   monitor: Gdk.Monitor
 }
@@ -10,18 +12,18 @@ type Props = {
 export default function Workspaces({ monitor }: Props) {
   if (!monitor.get_connector()) return <label label="" />
 
-  const hyprland = AstalHyprland.get_default()
-  const hyprMonitor = createBinding(hyprland, "monitors").as(
+  const hyprMonitors = createBinding(hyprland, "monitors")
+  const hyprMonitor = createComputed(
+    [hyprMonitors],
     (monitors) => monitors.find((m) => m.name === monitor.get_connector())!,
   )
-  if (!hyprMonitor) return <label label="" />
+  if (!hyprMonitor) return <label />
 
-  const hyprWorkspaces = createBinding(hyprland, "workspaces").as((ws) =>
-    ws.sort((a, b) => a.id - b.id),
-  )
+  const hyprWorkspaces = createBinding(hyprland, "workspaces")
   const monitorWorkspaces = createComputed(
     [hyprWorkspaces, hyprMonitor],
-    (ws, monitor) => ws.filter((w) => w.monitor == monitor),
+    (ws, monitor) =>
+      ws.sort((a, b) => a.id - b.id).filter((w) => w.monitor == monitor),
   )
 
   return (

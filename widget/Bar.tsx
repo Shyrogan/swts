@@ -12,19 +12,19 @@ type Props = {
 }
 
 export default function Bar({ gdkmonitor }: Props) {
+  let win: Astal.Window
   const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
 
   return (
     <window
       visible
-      name="bar"
+      name={`bar-${gdkmonitor.connector}`}
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.NORMAL}
       layer={Astal.Layer.TOP}
       anchor={TOP | LEFT | RIGHT}
       application={app}
       class="text-base font-medium"
-      $={(self) => onCleanup(() => self.destroy())}
     >
       <centerbox>
         <box $type="start" class="px-2 rounded-lg">
